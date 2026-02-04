@@ -12,7 +12,9 @@ int main()
 	string string1, string2;
 
 	//Get strings from user
+	cout << "Enter first string:" << endl;
 	getline(cin, string1); 
+	cout << "Enter second string:" << endl;
 	getline(cin, string2);
 
 	// Cleans string for anagram check
@@ -49,7 +51,7 @@ void anagramCheck(string string1, string string2)
 
 	// Automatically decides strings aren't anagrams if lengths are different post clean
 	if (string1.length() != string2.length()) {
-        	cout << "The strings are not anagrams" << endl;
+        	cout << "The strings are not anagrams." << endl;
 		return;
     	}
 	
@@ -75,10 +77,10 @@ void anagramCheck(string string1, string string2)
         
 	// If any letter is off, foundMatch is false
         if (!foundMatch) {
-		cout << "The strings are not anagrams" << endl;
+		cout << "The strings are not anagrams." << endl;
 		return;
 	}
     }
 
-    cout << "The strings are anagrams" << endl;
+    cout << "The strings are anagrams." << endl;
 }
