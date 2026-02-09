@@ -26,7 +26,7 @@ int main() {
     	vector<string> splitString = split(target, delimiter);
     
     // Print results
-	cout << "The subtrings are: ";
+	cout << "The substrings are: ";
     	printVector(splitString);
 
     return 0;
