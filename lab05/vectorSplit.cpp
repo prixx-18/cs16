@@ -69,6 +69,8 @@ vector<string> split(string target, string delimiter)
 // Prints the vector with each string encapsulated in "" and separated by commas
 void printVector(vector<string> stringVector)
 {
+	if (stringVector.size() == 1 && stringVector[0] == " ")
+		return;
 	if (stringVector.size() > 0)
 		cout << " ";
 	for (unsigned int i = 0; i < stringVector.size(); i++)
