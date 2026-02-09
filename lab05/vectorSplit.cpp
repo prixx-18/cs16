@@ -41,7 +41,7 @@ vector<string> split(string target, string delimiter)
 	bool substringExists = false;
 
 	// Exits the function if target or delimiter strings are empty
-	if (target.size() == 0 || delimiter.size() == 0)
+	if (target.size() == 0)
 	{
         	cout << "No substrings." << endl;
         	exit(1);
