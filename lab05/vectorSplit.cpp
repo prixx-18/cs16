@@ -37,39 +37,54 @@ int main() {
 // Postcondition: Returns a vector of substrings that are split by the desired delimiter
 vector<string> split(string target, string delimiter)
 {
-    vector<string> substrings;
-    
-    // Exits the function if string is empty
-    if (target == "")
-    {
-        cout << "No substrings." << endl;
-        exit(1);
-    }
+	vector<string> substrings;
+	bool substringExists = false;
 
-    // String variable constructed for every substring between delimiters
-    string substring = "";
-    for (unsigned int i = 0; i < target.size(); i++)
-    {
-        // Cuts off substring if delimiter is detected
-        if (target[i] == delimiter[0])
-        {
-            // Only pushes the substring if the substring isn't empty
-            if (substring != "")
-            {
-                substrings.push_back(substring);
-                substring = "";
-            }
-        }
-        else
-            // Concatonates character if it isn't delimiter
-            substring += target[i];
-    }
+	// Exits the function if target or delimiter strings are empty
+	if (target.size() == 0 || delimiter.size() == 0)
+	{
+        	cout << "No substrings." << endl;
+        	exit(1);
+    	}
 
-    // Pushes last substring if it isn't empty
-    if (substring != "")
-        substrings.push_back(substring);
+	// If every element in target equals delimiter then no substrings exist	
+	for (unsigned int i = 0; i < target.size(); i++)
+	{
+		if (target[i] != delimiter[0])
+			substringExists = true;
+	}
 
-    return substrings;
+	if (!substringExists)
+	{
+		cout << "No substrings." << endl;
+		exit(1);
+	}
+
+    	// String variable constructed for every substring between delimiters
+    	string substring = "";
+    	for (unsigned int i = 0; i < target.size(); i++)
+    	{
+        	// Cuts off substring if delimiter is detected
+        	if (target[i] == delimiter[0])
+        	{
+	    		// Only pushes the substring if the substring isn't empty
+            		if (substring != "")
+            		{
+                		substrings.push_back(substring);
+                		substring = "";
+            		}
+        	}
+        	else
+            		// Concatonates character if it isn't delimiter
+	    		substring += target[i];
+    	}
+
+
+    	// Pushes last substring if it isn't empty
+    	if (substring != "")
+        	substrings.push_back(substring);
+
+    	return substrings;
 }
 
 // Takes in a vector of strings
