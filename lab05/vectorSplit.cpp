@@ -25,10 +25,7 @@ int main()
 	// Call function split()
     	vector<string> splitString = split(target, delimiter);
     
-	// Print results
-    	if (splitString.size() > 0)
-		cout << "The substrings are: ";
-    	
+    	// Print results
 	printVector(splitString);
 	cout << endl;
 
@@ -72,12 +69,14 @@ vector<string> split(string target, string delimiter)
 // Prints the vector with each string encapsulated in "" and separated by commas
 void printVector(vector<string> stringVector)
 {
+	if (stringVector.size() > 0)
+		cout << " ";
 	for (unsigned int i = 0; i < stringVector.size(); i++)
 	{
 		// Omits comma from last substring printed
 		if (i == stringVector.size() - 1)
 		{
-			cout << " \"" << stringVector[i] << "\"";
+			cout << "\"" << stringVector[i] << "\"";
 			return;
 		}
 	cout << "\"" << stringVector[i] << "\", ";
