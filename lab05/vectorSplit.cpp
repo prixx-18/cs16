@@ -26,7 +26,8 @@ int main() {
     	vector<string> splitString = split(target, delimiter);
     
     // Print results
-	cout << "The substrings are: ";
+    	if (splitString.size() > 0)
+		cout << "The substrings are: ";
     	printVector(splitString);
 	cout << endl;
 
@@ -37,39 +38,33 @@ int main() {
 // Postcondition: Returns a vector of substrings that are split by the desired delimiter
 vector<string> split(string target, string delimiter)
 {
-    vector<string> substrings;
-    
-    // Exits the function if string is empty
-    if (target == "")
-    {
-        cerr << "No substrings." << endl;
-        exit(1);
-    }
+   	cout << "The substrings are:"; 
+	vector<string> substrings;
 
-    // String variable constructed for every substring between delimiters
-    string substring = "";
-    for (unsigned int i = 0; i < target.size(); i++)
-    {
-        // Cuts off substring if delimiter is detected
-        if (target[i] == delimiter[0])
-        {
-            // Only pushes the substring if the substring isn't empty
-            if (substring != "")
-            {
-                substrings.push_back(substring);
-                substring = "";
-            }
+	// String variable constructed for every substring between delimiters
+    	string substring = "";
+    	for (unsigned int i = 0; i < target.size(); i++)
+    	{
+    	    	// Cuts off substring if delimiter is detected
+        	if (target[i] == delimiter[0])
+        	{
+            	// Only pushes the substring if the substring isn't empty
+            	if (substring != "")
+            	{
+                	substrings.push_back(substring);
+                	substring = "";
+            	}
         }
-        else
-            // Concatonates character if it isn't delimiter
-            substring += target[i];
-    }
+        	else
+			// Concatonates character if it isn't delimiter
+            		substring += target[i];
+    	}
 
-    // Pushes last substring if it isn't empty
-    if (substring != "")
-        substrings.push_back(substring);
+    	// Pushes last substring if it isn't empty
+    	if (substring != "")
+        	substrings.push_back(substring);
 
-    return substrings;
+    	return substrings;
 }
 
 // Takes in a vector of strings
@@ -81,7 +76,7 @@ void printVector(vector<string> stringVector)
 		// Omits comma from last substring printed
 		if (i == stringVector.size() - 1)
 		{
-			cout << "\"" << stringVector[i] << "\"";
+			cout << " \"" << stringVector[i] << "\"";
 			return;
 		}
 	cout << "\"" << stringVector[i] << "\", ";
