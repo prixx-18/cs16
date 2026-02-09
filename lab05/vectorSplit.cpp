@@ -19,7 +19,7 @@ int main() {
     // Get target string from user, get delimiter string from user
 	cout << "Enter string to split:" << endl;
 	getline(cin, target); 
-	cout << "Enter delimiter string" << endl;
+	cout << "Enter delimiter string:" << endl;
 	getline(cin, delimiter);
 
     // Call function split()
@@ -28,6 +28,7 @@ int main() {
     // Print results
 	cout << "The substrings are: ";
     	printVector(splitString);
+	cout << endl;
 
     return 0;
 }
@@ -80,7 +81,7 @@ void printVector(vector<string> stringVector)
 		// Omits comma from last substring printed
 		if (i == stringVector.size() - 1)
 		{
-			cout << "\"" << stringVector[i] << "\"" << endl;
+			cout << "\"" << stringVector[i] << "\"";
 			return;
 		}
 	cout << "\"" << stringVector[i] << "\", ";
