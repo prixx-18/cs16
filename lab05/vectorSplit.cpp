@@ -10,28 +10,29 @@ using namespace std;
 vector<string> split(string target, string delimiter);
 void printVector(vector<string> stringVector);
 
-int main() {
-
-    // Initialize string variables
+int main() 
+{
+	// Initialize string variables
     	string target;
 	string delimiter;
 
-    // Get target string from user, get delimiter string from user
+	// Get target string from user, get delimiter string from user
 	cout << "Enter string to split:" << endl;
 	getline(cin, target); 
 	cout << "Enter delimiter string:" << endl;
 	getline(cin, delimiter);
 
-    // Call function split()
+	// Call function split()
     	vector<string> splitString = split(target, delimiter);
     
-    // Print results
+	// Print results
     	if (splitString.size() > 0)
 		cout << "The substrings are: ";
-    	printVector(splitString);
+    	
+	printVector(splitString);
 	cout << endl;
 
-    return 0;
+   	return 0;
 }
 
 // Precondition: Takes two string arguments, the main target string and the string you want to split the target by
