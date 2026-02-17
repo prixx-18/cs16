@@ -42,6 +42,7 @@ int main()
 	if (file_length == 0)
 	{
 		cout << "No rhymes found." << endl;
+		cout << "There are 0 lines in this poem." << endl;
 		exit(1);
 	}
 
