@@ -22,7 +22,7 @@ int main()
 	ifstream rhyme_stream;
 	string file_name;
 	
-	cout << "Enter file name: ";
+	cout << "Enter filename: ";
 	cin >> file_name;
 	rhyme_stream.open(file_name);
 
