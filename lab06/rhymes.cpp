@@ -39,9 +39,13 @@ int main()
     		file_length++;
 	}
 
-	rhyme_stream.close();
+	if (file_length == 0)
+	{
+		cout << "No rhymes found." << endl;
+		exit(1);
+	}
 
-	// 2. Reopen it immediately using the same file name
+	rhyme_stream.close();
 	rhyme_stream.open(file_name);
 
 	string *last_words = new string[file_length];

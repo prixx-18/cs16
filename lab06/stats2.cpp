@@ -35,6 +35,9 @@ int main()
 	while (gradeStream >> next)
 		fileSize++;
 
+	if (fileSize == 0)
+		exit(1);
+
 	gradeStream.close();
 
 	gradeStream.open(fileName);
