@@ -35,17 +35,9 @@ int main()
 	int file_length = 0;
 
 	string temp;
-	while (getline(rhyme_stream, temp)) {
+	while (getline(rhyme_stream, temp))
     		file_length++;
-	}
-
-	if (file_length == 0)
-	{
-		cout << "No rhymes found." << endl;
-		cout << "There are 0 lines in this poem." << endl;
-		exit(1);
-	}
-
+	
 	rhyme_stream.close();
 	rhyme_stream.open(file_name);
 
@@ -60,7 +52,7 @@ int main()
 	}
 
 	int rhyme_counter = 0;
-	for (unsigned int i = 0; i < file_length - 1; i++)
+	for (int i = 0; i < file_length - 1; i++)
 	{
 		if (compareWords(last_words[i], last_words[i+1]))
 		{
@@ -70,7 +62,7 @@ int main()
 	}
 	
 	double rhyme_density = rhyme_counter / (file_length * 1.0);
-	
+
 	if (rhyme_counter > 1)
 	{
 		cout << fixed << setprecision(2);
@@ -83,11 +75,13 @@ int main()
 		cout << "There is " << rhyme_counter << " pair of rhyming words." << endl;
 		cout << "There are " << file_length << " lines in this poem, so the rhyme-line density is: " << rhyme_density << endl;
 	}
-	else
+	else if (rhyme_counter < 1)
 	{
 		cout << "No rhymes found." << endl;
 		cout << "There are " << file_length << " lines in this poem." << endl;
 	}
+
+
 		
 	rhyme_stream.close();
 	delete []last_words;
