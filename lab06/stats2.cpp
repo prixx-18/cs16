@@ -26,20 +26,22 @@ int main()
 	cin >> fileName;
 	gradeStream.open(fileName);
 
-	 // Reject sizes less than 1
+	// Throws error if file cannot open
         if (gradeStream.fail()){
                 cerr << "Cannot open " << fileName << endl;
                 exit(1);
         }
 
+	// Increments the file size counter until no numers are left
 	while (gradeStream >> next)
 		fileSize++;
 
+	// Exits if file has no lines
 	if (fileSize == 0)
 		exit(1);
 
+	// Closes and reopens file to get back to the top
 	gradeStream.close();
-
 	gradeStream.open(fileName);
 	
 	// Create dynamic array in freestore/heap and have user enter each element

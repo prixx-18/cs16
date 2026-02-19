@@ -1,4 +1,3 @@
-// Include statements go here...
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -8,7 +7,7 @@
 using namespace std;
 
 // FUNCTION DECLARATIONS: YOU MUST DEFINE AND USE THESE (do not remove):
-//      You can declare/define other functions if you like as well,
+//      iYou can declare/define other functions if you like as well,
 //      but you must use the 3 functions below.
 // See lab description for more on these functions.
 
@@ -19,13 +18,16 @@ bool compareWords(string word1, string word2);
 
 int main() 
 {
+	// Instantiate ifstream object
 	ifstream rhyme_stream;
 	string file_name;
 	
+	// Get filename from user and attempt file open
 	cout << "Enter filename: ";
 	cin >> file_name;
 	rhyme_stream.open(file_name);
 
+	// Exit if file cannot open
 	if (rhyme_stream.fail())
 	{
 		cerr << "Cannot open " << file_name << endl;
@@ -34,15 +36,19 @@ int main()
 
 	int file_length = 0;
 
+	// Get file length using getline's boolean output
 	string temp;
 	while (getline(rhyme_stream, temp))
     		file_length++;
 	
+	// Close and reopen file to reset to top
 	rhyme_stream.close();
 	rhyme_stream.open(file_name);
 
+	// Create dynamic array
 	string *last_words = new string[file_length];
 	
+	// Append each line's last word to array
 	for (unsigned int i = 0; i < file_length; i++)
 	{
 		string poem_line;
@@ -51,6 +57,7 @@ int main()
 		last_words[i] = last_word;
 	}
 
+	// Increment rhyme counter every time a rhyme is detected
 	int rhyme_counter = 0;
 	for (int i = 0; i < file_length - 1; i++)
 	{
@@ -61,8 +68,10 @@ int main()
 		}
 	}
 	
+	// Calculate rhyme-line density
 	double rhyme_density = rhyme_counter / (file_length * 1.0);
 
+	// Print outputs according to how many rhymes were detected
 	if (rhyme_counter > 1)
 	{
 		cout << fixed << setprecision(2);
@@ -82,7 +91,7 @@ int main()
 	}
 
 
-		
+	// Close file for good, return memory to freestore, and assign pointer to Null	
 	rhyme_stream.close();
 	delete []last_words;
 	last_words = nullptr;	
@@ -90,8 +99,11 @@ int main()
 	return 0;
 }
 
+// Pre-condition: Input a string that you want to flip (passed by reference)
+// Post-condition: The string's order is automatically flipped and physically changed by the function
 void flipString(string &inputString)
 {
+	// Index string from last index to first index appending it to flippedString
         string flippedString = inputString;
         int len = inputString.length();
         for (int i = len - 1; i >= 0; i--)
@@ -100,9 +112,13 @@ void flipString(string &inputString)
         inputString = flippedString;
 }
 
+// Pre-condition: Input a string you want to physically clean (passed by reference)
+// Post-condition: Physically changes input by stripping all non alphabetical characters and lowering the case of every letter
 void cleanUp(string &word)
 {
 	string cleanWord = "";
+
+	// Only appends alphabetical characters and lowers them
 	for (unsigned int i = 0; i < word.size(); i++)
 	{
 		if (isalpha(word[i]))
@@ -111,30 +127,36 @@ void cleanUp(string &word)
 	word = cleanWord;
 }
 
+// Pre-condition: Input a string (sentence from a poem in this program's usecase)
+// Post-condition: Returns the last word in that string
 string findLastWord(string line) {
 	string reversedLine = line; 
-	flipString(reversedLine); // Assume this function reverses the string
+	flipString(reversedLine); // Flips the string
     
 	string lastWord = "";
 	int i = 0;
-	// Check bounds (i < size) and look for whitespace
+	// Appends every character until a space is detected
+	// String is flipped so finding the first word is actually finding the last word
 	while (i < reversedLine.length() && !isspace(reversedLine[i])) {
         	lastWord += reversedLine[i];
         	i++;
     	}
 
     	flipString(lastWord); // Flip the word back to its original order
-	cleanUp(lastWord);
+	cleanUp(lastWord); // Clean the word for later use
     	return lastWord;
 }
 
+// Pre-condition: Input two cleaned strings (all lower case and alphabetic characters)
+// Post-condition: Returns true if the last two letters match, else returns false
 bool compareWords(string word1, string word2)
 {
-	// Safety check for blank lines or single-character noise
+	// Returns false if any line is smaller than 2
     	if (word1.size() < 2 || word2.size() < 2) {
         	return false;
     	}
 
+	// Checks if the last two letters of both cleaned strings match
 	if (word1[word1.size() - 1] == word2[word2.size() - 1] && word1[word1.size() - 2] == word2[word2.size() - 2])
 		return true;
 	
