@@ -14,7 +14,7 @@ int main() {
 	ifstream sort_stream;
 	string file_name;
 	cout << "Enter filename: ";
-	getline(cin, file_name);
+	cin >> file_name;
 
 	sort_stream.open(file_name);
 	if (sort_stream.fail())
