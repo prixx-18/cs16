@@ -30,6 +30,7 @@ int main() {
 	getArray(sort_stream, file_name, sort_array, file_size);
 
     	// 3. Print original array (see PDF lab description for details)
+	cout << "Original array:" << endl;
 	for (int i = 0; i < file_size; i++)
     		cout << sort_array[i] << " ";
     	cout << endl;
@@ -41,6 +42,7 @@ int main() {
     	//      Note: You HAVE to use the function sort() here
 	sort(desc, sort_array, file_size, 0);
     	// 6. Print sorted array (see PDF lab description for details)
+	cout << "Sorted array:" << endl;
 	for (int i = 0; i < file_size; i++) 
 		cout << sort_array[i] << " ";
 	cout << endl;
