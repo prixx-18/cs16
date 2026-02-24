@@ -1,20 +1,15 @@
-/* Skeleton file for vertical.cpp
- * For use in CS16
- * (c) 2024 by Z.Matni
- */
-// Do not add any other #include statement!
 #include <iostream>
 using namespace std;
 
-// Declare printV() here
 void printV(unsigned long int num);
 
 int main() {
-    	// 1. Get user input
+    	// Storing users input into a long int (more memory space)
     	long int num;
     	cout << "Enter integer: ";
     	cin >> num;
-    	// 2. Check input and pass it on to printV()
+
+    	// Checking for positive integer and calling printV
 	if (num < 0)
     		cout << "Input must be a positive integer." << endl;
 	else
