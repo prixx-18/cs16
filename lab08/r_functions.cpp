@@ -19,8 +19,9 @@ void NameSort(UndergradStudents array[], int size)
 }
 
 void InitializeStructures(UndergradStudents us[], int &size)
-{
-        int arrCounter = 0;
+{	
+        cout << "STUDENT RECORDS:" << endl;
+	int arrCounter = 0;
         while (arrCounter < 20)
         {
                 cout << "Student ";
@@ -67,7 +68,7 @@ void InitializeStructures(UndergradStudents us[], int &size)
                 cout << arrCounter + 1 << ":Enter GPA Year 4: ";
                 cin >> us[arrCounter].GPA4;
 
-                us[arrCounter].ID = arrCounter;
+                us[arrCounter].ID = arrCounter + 1;
 
                 cout << endl;
                 arrCounter++;
@@ -82,12 +83,14 @@ void WriteResults(ofstream &outf, UndergradStudents us[], int size)
 
         cout << fixed << setprecision(2);
         outf << fixed << setprecision(2);
+	
+	NameSort(us, size);
 
         outf << "These are the results sorted by last name:" << endl;
         for (int i = 0; i < size; i++)
         {
                 float averageGPA = (us[i].GPA1 + us[i].GPA2 + us[i].GPA3 + us[i].GPA4) / 4.0;
-                outf << "ID# " << us[i].ID << ": " << us[i].firstName << ": " << us[i].major << ": " << averageGPA << endl;
+                outf << "ID# " << us[i].ID << ": " << us[i].lastName << ": " << us[i].firstName << ": " << us[i].major << ": " << averageGPA << endl;
         }
 
         outf.close();

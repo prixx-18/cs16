@@ -1,10 +1,3 @@
-// file: ll_functions.cpp
-#include <iostream> 
-#include <string>  
-using namespace std; 
-
-#include "ll_headers.h"
-
 // Used in the function createLL()
 // This function is started for you correctly - you have to complete it.
 //   Use the comments to help you figure out what to do.
