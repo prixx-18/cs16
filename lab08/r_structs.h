@@ -1,13 +1,12 @@
 // file: r_structs.h
-// YOUR NAME HERE
+// Priyansh Nath
 
-// DECLARE THE struct UndergradStudents HERE:
 struct UndergradStudents {
-	int ID;
+	int ID; // ID numbers are ints
 	string firstName;
 	string lastName;
 	string major;
-	float GPA1;
+	float GPA1; // GPA requires floating point precision
 	float GPA2;
 	float GPA3;
 	float GPA4;	
