@@ -1,28 +1,28 @@
 #include "Student.h"
 #include <sstream> // for ostringstream
 
+// Overloaded constructor that initializes
 Student::Student(int p, string lName, string fName) {
-	perm = p;
+	perm = p; 
 	lastName = lName;
 	firstAndMiddleNames = fName;
+	// Initializes all private member variables to user inputted parameters
 }
 
-// THE NEXT 4 MEMBER FUNCTIONS NEED TO BE DEFINED BY THE STUDENT
-//      AND ARE, IN THE MEANTIME, DEFINED AS STUBS:
 int Student::getPerm() { 
-  return perm;
+  return perm; // Simply returns perm number (accessor)
 }
 
 string Student::getLastName() { 
-  return lastName;
+  return lastName; // Simply returns lastName (accessor)
 }
 
 string Student::getFirstAndMiddleNames() { 
-  return firstAndMiddleNames;
+  return firstAndMiddleNames; // Simply returns first and middle names (accessor)
 }
 
 string Student::getFullName() { 
-  return firstAndMiddleNames + " " + lastName;
+  return firstAndMiddleNames + " " + lastName; // Simply returns first, middle, and last name (accessor)
 }
 
 // THIS MEMBER FUNCTION IS DEFINED FOR YOU ALREADY:

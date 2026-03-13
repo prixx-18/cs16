@@ -1,17 +1,13 @@
-// file: headers.h for newanagrams
-
-// Define class AString here!
-// See PDF for details
 class AString {
 	public:
-		AString();
-		AString(string inputString);
-		string getStringValue();
-		void cleanUp();
-		void countLetters(int arr[]);
-		void getAString();
+		AString(); // Default constructor
+		AString(string inputString); // Overloaded constructor that initializes StringValue
+		string getStringValue(); // Accessor
+		void cleanUp(); // Public member function that cleans strings
+		void countLetters(int arr[]); // Public member function that counts letter occurances in an int array
+		void getAString(); // Public member function that gets string from user
 	private:
-		string StringValue;
+		string StringValue; // Private member variable
 };
 
 // DO NOTE CHANGE THESE AND DO NOT ADD TO THEM!
